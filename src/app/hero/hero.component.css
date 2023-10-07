@@ -70,7 +70,7 @@ h1 {
     background-color: #fc5800;
 }
 
-.add-form {
+.add-form, .edit-form {
     margin: 2rem 10rem 0 30rem;
 }
 

@@ -13,7 +13,11 @@ interface NewHero {
 })
 export class HeroComponent {
 
+  constructor(private heroService: HeroServiceService) {}
+
   showAddForm = false; 
+
+  selectedHero: any = null;
 
   newHero = { name: '', superpower: '' }
 
@@ -30,18 +34,28 @@ export class HeroComponent {
   }
 
   onAdd() {
-    if (this.newHero.name && this.newHero.superpower) {
-      const newHero = {
-        id: this.heroes.length + 1,
-        name: this.newHero.name,
-        superpower: this.newHero.superpower
-      };
-      this.heroes.push(newHero);
-      this.newHero = { name: '', superpower: '' };
-      this.showAddForm = false;
-    }
+    this.heroService.addHero(this.heroes, this.newHero);
+    this.newHero = { name: '', superpower: '' };
+    this.showAddForm = false;
   }
-    }
   
+  onSelect(hero: any) {
+    this.selectedHero = { ...hero };
+
+}
+onEdit() {
+  if (this.selectedHero.name && this.selectedHero.superpower) {
+    this.heroService.editHero(this.heroes, this.selectedHero);
+    this.selectedHero = null;
+  }
+}
+
+onDelete(hero: any) {
+  const isConfirmed = window.confirm(`¿Estás seguro de que deseas borrar a ${hero.name}?`);
+  if (isConfirmed) {
+    this.heroService.deleteHero(this.heroes, hero);
+  }
+}
 
 
+}

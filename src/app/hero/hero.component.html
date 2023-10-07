@@ -18,9 +18,21 @@
         <span class="hero-badge">Nº: {{hero.id}}</span>
         <span class="hero-name">Nombre: {{hero.name}}</span>
         <span class="hero-superpower">Superpoder: {{hero.superpower}}</span>
-        <button class="edit-button" type="button" onclick="onSelect(hero)">Editar</button>
-        <button class="delete-button"  type="button" onclick="onSelect(hero)">Borrar</button>
+        <button class="edit-button" type="button" (click)="onSelect(hero)">Editar</button>
+        <button class="delete-button" type="button" (click)="onDelete(hero)">Borrar</button>
     </li>
 </ul>
+
+<div *ngIf="selectedHero" class="edit-form">
+    <h2>Editar Superhéroe</h2>
+    <form (submit)="onEdit()">
+      <label for="editName">Nombre:</label>
+      <input type="text" id="editName" name="editName" [(ngModel)]="selectedHero.name" required>
+      <label for="editSuperpower">Superpoder:</label>
+      <input type="text" id="editSuperpower" name="editSuperpower" [(ngModel)]="selectedHero.superpower" required>
+      <button type="submit">Guardar cambios</button>
+    </form>
+  </div>
+  
 
 
