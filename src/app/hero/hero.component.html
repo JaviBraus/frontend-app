@@ -1,1 +1,26 @@
-<p>hero works!</p>
+<h1>Gestor de superhéroes</h1>
+
+<button class="add-button" type="button" (click)="toggleAddForm()">Añadir nuevo héroe</button>
+
+<div *ngIf="showAddForm" class="add-form">
+  <h2>Añadir un nuevo héroe</h2>
+  <form (submit)="onAdd()">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newHero.name" required>
+    <label for="superpower">Superpoder:</label>
+    <input type="text" id="superpower" name="superpower" [(ngModel)]="newHero.superpower" required>
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <span class="hero-badge">Nº: {{hero.id}}</span>
+        <span class="hero-name">Nombre: {{hero.name}}</span>
+        <span class="hero-superpower">Superpoder: {{hero.superpower}}</span>
+        <button class="edit-button" type="button" onclick="onSelect(hero)">Editar</button>
+        <button class="delete-button"  type="button" onclick="onSelect(hero)">Borrar</button>
+    </li>
+</ul>
+
+

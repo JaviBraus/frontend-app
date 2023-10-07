@@ -1,0 +1,76 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.add-button {
+   margin: 0 0 0 45rem;
+   height: 2rem;
+   background-color: green;
+   color: white;
+   border-radius: 6px;
+   display: block;
+   border-color: green;
+}
+
+.add-button:hover {
+    background-color:#00b626 ;
+}
+
+.heroes {
+    margin: 2rem 10rem 0 30rem;
+    list-style-type: none;
+    
+}
+
+.heroes li {
+    padding: 1%;
+}
+
+
+
+.hero-badge {
+  display: inline-block;
+  color: white;
+  background-color: teal;
+  padding-left: 0.5%;
+  width: 5.5%;
+  border-radius: 20px;
+  margin-right: 0.5%;
+}
+
+.hero-name, .hero-superpower {
+    margin-right: 1%;
+}
+
+
+.edit-button {
+    background-color: darkblue;
+    color: white;
+   border-radius: 6px;
+   border-color: darkblue;
+   margin-right: 0.5%;
+}
+
+.edit-button:hover {
+    background-color: #2c00e5;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+   border-radius: 6px;
+   border-color: red;
+}
+
+.delete-button:hover {
+    background-color: #fc5800;
+}
+
+.add-form {
+    margin: 2rem 10rem 0 30rem;
+}
+
